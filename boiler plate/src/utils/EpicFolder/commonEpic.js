@@ -18,7 +18,7 @@ const epic = (getterFunc, initial, success, cancel, failure, mapFunction, type, 
           type: failure,
           payload: error,
         }, {
-          type: actionType.CATELOGUE_FAILURE,
+          type: actionType.FAILURE,
           payload: error,
           msg: error?.response?.message || (typeof error?.response === 'string' && error?.response) || failedMsg,
           meta: action?.payload
@@ -28,8 +28,6 @@ const epic = (getterFunc, initial, success, cancel, failure, mapFunction, type, 
     )
   );
 
-  const sampleEpic = epic(()=>{}, 'initialAction', 'successAction', 'cancelAction', 'failureAction', switchMap, 'GET')
 
   export default combineEpics(
-    sampleEpic,
   );
