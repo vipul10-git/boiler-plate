@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React from "react";
 import {
   BrowserRouter,
   Routes,
@@ -10,7 +10,6 @@ const RouterConfig = () =>{
     return(
         <>
         <BrowserRouter>
-            <Suspense fallback={<div>Loading...</div>}>
             <Routes>
             <Route
                     path='/'
@@ -27,7 +26,6 @@ const RouterConfig = () =>{
                 )))
             }
             </Routes>
-            </Suspense>
         </BrowserRouter>
         </>
 

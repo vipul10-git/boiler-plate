@@ -1,8 +1,7 @@
-import React,{lazy} from 'react';
-// import Home from '../pages/Home';
-const Home = lazy(() => import("../pages/Home"));
-const Home2 = lazy(() => import("../pages/Home2"));
-// import Home2 from '../pages/Home2';
+import React from 'react';
+import loadable from '@loadable/component'
+const Home = loadable(() => import("../pages/Home"));
+const Home2 = loadable(() => import("../pages/Home2"));
 const ComponentList = [
     {
         component: <Home/>,
