@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
 module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
@@ -52,19 +51,16 @@ module.exports = {
       ]
     },
     devServer: {
-      static: './build',
+      // static: './build',
+      historyApiFallback: true,
       hot: true,
+      static: {
+        directory: './build',
+      },
+      compress: true,
+      port: 4000,
     },
     plugins: [
-      new ModuleFederationPlugin({
-        name: "React-Boiler_plate",
-        filename: "remoteEntry.js",
-        remotes: {},
-        exposes: {},
-        shared: {
-          ...deps,
-        },
-      }),,
       new HtmlWebpackPlugin({
         body:true,
         title: 'Hot Module Replacement',
