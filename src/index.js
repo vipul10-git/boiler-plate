@@ -1,4 +1,3 @@
-require('webpack-hot-middleware/client');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './appContainer'
@@ -9,5 +8,6 @@ ReactDOM.render(<App store={store}/>, rootNode);
 
 
 if (process.env.NODE_ENV === 'development' && module['hot']) {
+    require('webpack-hot-middleware/client');
     module['hot'].accept();
 }
