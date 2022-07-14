@@ -8,7 +8,8 @@
     "node": ">=8.10.0"
   },
   "scripts": {
-    "start": "rm -rf build && NODE_ENV=development webpack && node server",
+    "start": "NODE_ENV=development webpack serve",
+    "build": "rm -rf build && NODE_ENV=development webpack && node server",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
     "lint:staged": "lint-staged",
